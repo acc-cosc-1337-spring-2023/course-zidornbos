@@ -15,4 +15,9 @@ double sales_tax = meal_amount * tax_rate;
 return sales_tax;
 }
 
+double get_tip_amount(double meal_amount, double tip_rate)
+{
+	double tip = meal_amount * tip_rate;
+	return tip;
+}
 
