@@ -35,3 +35,41 @@ string get_letter_grade_using_if(int grade)
 
     return result;
 }
+
+
+string get_letter_grade_using_switch(int grade)
+{
+    string letter_grade;
+
+    switch(grade / 10)
+    {
+        case 10:
+
+        case 9:
+            letter_grade = "A";
+            break;
+        case 8:
+            letter_grade = "B";
+            break;
+        case 7:
+            letter_grade = "C";
+            break;
+        case 6:
+            letter_grade = "D";
+            break;
+        case 5:
+        case 4:
+        case 3:
+        case 2:
+        case 1:
+        case 0:
+            letter_grade = "F";
+            break;
+        default:
+            letter_grade = "Out of Range";
+            break;
+
+    }
+
+    return letter_grade;
+}
