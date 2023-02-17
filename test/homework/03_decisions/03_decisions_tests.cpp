@@ -23,5 +23,5 @@ TEST_CASE("Test get letter grade using switch")
 	REQUIRE(get_letter_grade_using_switch(75) == "C");
 	REQUIRE(get_letter_grade_using_switch(65) == "D");
 	REQUIRE(get_letter_grade_using_switch(50) == "F");
-	REQUIRE(get_letter_grade_using_switch(-5) == "Out of Range");
+	REQUIRE(get_letter_grade_using_switch(0) == "F");
 }

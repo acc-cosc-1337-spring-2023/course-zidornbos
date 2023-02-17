@@ -57,18 +57,10 @@ string get_letter_grade_using_switch(int grade)
         case 6:
             letter_grade = "D";
             break;
-        case 5:
-        case 4:
-        case 3:
-        case 2:
-        case 1:
-        case 0:
+        default:
             letter_grade = "F";
             break;
-        default:
-            letter_grade = "Out of Range";
-            break;
-
+                    
     }
 
     return letter_grade;
