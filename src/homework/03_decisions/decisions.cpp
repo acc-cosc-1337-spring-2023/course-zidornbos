@@ -36,6 +36,12 @@ string get_letter_grade_using_if(int grade)
 
 string get_letter_grade_using_switch(int grade)
 {
+    if (grade < 0 || grade >= 101)
+    {
+        return "Out of range";
+    }
+    else
+    {
     int grade_range = grade / 10;
 
     switch(grade_range)
@@ -62,16 +68,8 @@ string get_letter_grade_using_switch(int grade)
         case 0:
             return "F";
             break;
-        default:
-            if (grade >= 101 || grade < 0)
-            {
-                return "Out of range";
-            }
-            else
-            {
-                return "Invalid Entry";
-            }
-                    
+        default:         
+            return "Invalid Entry";
+    }        
     }
-
 }
