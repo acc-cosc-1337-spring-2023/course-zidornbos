@@ -6,62 +6,64 @@ using std::string;
 
 string get_letter_grade_using_if(int grade)
 {
-    string result;
-
     if(grade >= 90 && grade <= 100)
     {
-        result = 'A';
+        return "A";
     }
     else if(grade >= 80 && grade <= 89)
     {
-        result = 'B';
+        return "B";
     }
     else if(grade >= 70 && grade <= 79)
     {
-        result = 'C';
+        return "C";
     }
     else if(grade >= 60 && grade <= 69)
     {
-        result = 'D';
+        return "D";
     }
     else if(grade >= 00 && grade <= 59)
     {
-        result = 'F';
+        return "F";
     }
     else
     {
-        result = "Out of Range";
+        return "Out of Range";
     }
 
-    return result;
 }
 
 
 string get_letter_grade_using_switch(int grade)
 {
-    string letter_grade;
+    int grade_range = grade / 10;
 
-    switch(grade / 10)
+    switch(grade_range)
     {
         case 10:
 
         case 9:
-            letter_grade = "A";
+            return "A";
             break;
         case 8:
-            letter_grade = "B";
+            return "B";
             break;
         case 7:
-            letter_grade = "C";
+            return "C";
             break;
         case 6:
-            letter_grade = "D";
+            return "D";
             break;
         default:
-            letter_grade = "F";
-            break;
+            if (grade >= 0 && grade < 60)
+            {
+                return "F";
+            }
+            else
+            {
+                return "Out of range";
+            }
                     
     }
 
-    return letter_grade;
 }
