@@ -54,14 +54,22 @@ string get_letter_grade_using_switch(int grade)
         case 6:
             return "D";
             break;
+        case 5:
+        case 4:
+        case 3:
+        case 2:
+        case 1:
+        case 0:
+            return "F";
+            break;
         default:
-            if (grade >= 0 && grade < 60)
+            if (grade >= 101 || grade < 0)
             {
-                return "F";
+                return "Out of range";
             }
             else
             {
-                return "Out of range";
+                return "Invalid Entry";
             }
                     
     }
