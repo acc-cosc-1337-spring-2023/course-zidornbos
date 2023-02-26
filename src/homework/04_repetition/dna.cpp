@@ -1,5 +1,7 @@
 //add include statements
 #include "dna.h"
+
+using std::cout; using std::cin;
 //add function(s) code here
 
 int factorial(int num)
@@ -26,4 +28,5 @@ int gcd(int num1, int num2)
     }
     return num1;
 }
+
 

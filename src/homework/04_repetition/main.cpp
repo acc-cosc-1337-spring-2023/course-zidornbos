@@ -14,14 +14,54 @@ user enters a y or Y.
 */
 int main() 
 {
-	int option;
-
-	cout << "Please make a selection\n";
+	int selection;
+    do
+    {
+    cout << "Main Menu\n";
 	cout << "1-Factorial\n";
 	cout << "2-Greatest Common Divisor\n";
 	cout << "3-Exit\n";
-	cin >> option;
+    cout << "Make your selection: \n";
+    cin >> selection;
 
-
-	return 0;
+    switch(selection)
+    {
+        case 1:
+        {
+            int num;
+            cout << "Enter an integer to find its factorial: \n";
+            cin >> num;
+            cout << "Factorial of " << num << " is " << factorial(num) << "\n";
+            break;
+        }
+        case 2:
+        {
+            int num1, num2;
+            cout << "Enter two integers to find their greatest common divisor: \n";
+            cin >> num1 >> num2;
+            cout << "Greatest common divisor of " << num1 << " and " << num2 << " is " << gcd(num1, num2) << "\n";
+            break;
+        }
+        case 3:
+        {
+            char confirm;
+            cout << "Are you sure you want to exit? (y/n): ";
+            cin >> confirm;
+            if (confirm == 'y' || confirm == 'Y')
+            {
+                cout << "Goodbye\n";
+                return 0;
+            }
+            break;
+        }
+        default:
+            cout << "Invalid selection \n";
+    }
 }
+    while (true);
+
+    return 0;
+    
+}
+
+
