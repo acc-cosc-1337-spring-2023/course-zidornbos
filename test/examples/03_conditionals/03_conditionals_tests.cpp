@@ -29,6 +29,25 @@ TEST_CASE("Get notted results")
 	REQUIRE(get_notted_result(true) == false);
 }
 
+TEST_CASE("Test logical order of precedence")
+{
+	REQUIRE(get_order_of_ops(true, true, true) == true);
+}
+
+TEST_CASE("Test is overtime", "gt 40 returns true")
+{
+	REQUIRE(is_overtime(39) == false);
+	REQUIRE(is_overtime(40) == false);
+	REQUIRE(is_overtime(41) == true);
+}
+
+TEST_CASE("Test is even")
+{
+	REQUIRE(is_even(2) == true);
+	REQUIRE(is_even(3) == false);
+	REQUIRE(is_even(100) == true);
+}
+
 TEST_CASE("Test get generation")
 {
 	REQUIRE(get_generation(2023) == "Invalid Year");
