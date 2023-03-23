@@ -1,10 +1,15 @@
 //checking_account.h
-class CheckingAccount
+
+#include "bank_account.h"
+
+#ifndef CHECKING_ACCOUNT_H
+#define  CHECKING_ACCOUNT_H
+
+class CheckingAccount : public BankAccount
 {
-    public:
-        int get_balance(){return balance;}
-        
-    private: 
-        int balance;
+public:    
+    CheckingAccount(){}
+    CheckingAccount(int b) : BankAccount(b){}
 };
 
+#endif
