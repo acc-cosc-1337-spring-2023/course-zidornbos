@@ -1,4 +1,7 @@
 //h
+#ifndef TIC_TAC_TOE_H
+#define TIC_TAC_TOE_H
+
 #include <string>
 #include <vector>
 
@@ -20,3 +23,5 @@ class TicTacToe
         std::vector<std::string> pegs{9, " "};
 
 };
+
+#endif
