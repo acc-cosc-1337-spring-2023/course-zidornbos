@@ -11,10 +11,23 @@ TEST_CASE("Test game over if 9 slots are selected")
 {
 	TicTacToe t;
 	t.start_game("X");
-	t.mark_board(1, 2, 3, 4, 5, 7, 6, 9, 8);
-	t.game_over();
-	
-
-	REQUIRE(t.game_over(true) == true);
+	t.mark_board(1);
+	REQUIRE(t.game_over() == false);
+	t.mark_board(2);
+	REQUIRE(t.game_over() == false);
+	t.mark_board(3);
+	REQUIRE(t.game_over() == false);
+	t.mark_board(4);
+	REQUIRE(t.game_over() == false);
+	t.mark_board(5);
+	REQUIRE(t.game_over() == false);
+	t.mark_board(7);
+	REQUIRE(t.game_over() == false);
+	t.mark_board(6);
+	REQUIRE(t.game_over() == false);
+	t.mark_board(9);
+	REQUIRE(t.game_over() == false);
+	t.mark_board(8);
+	REQUIRE(t.game_over() == true);
 
 }
