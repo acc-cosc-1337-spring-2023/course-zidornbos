@@ -31,8 +31,13 @@ int main()
 			{
 				continue_game = false;
 			}
-			std::string first_player;
-			game.start_game(first_player);
+			else
+			{
+				std::string first_player;
+				cout<<"Enter the first player (X or O): ";
+				cin>> first_player;
+				game.restart_game(first_player);
+			}
 		}
 
 	}

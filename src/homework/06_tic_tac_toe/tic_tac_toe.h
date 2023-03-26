@@ -14,6 +14,7 @@ class TicTacToe
         void mark_board(int position);
         void display_board() const;
         bool game_over();
+        void restart_game(std::string first_player);
     
     private:
         void set_next_player();

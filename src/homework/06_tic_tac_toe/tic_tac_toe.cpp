@@ -4,7 +4,15 @@
 
 void TicTacToe::start_game(std::string first_player)
 {
-    player = first_player;
+    if(first_player == "X" || first_player == "x")
+    {
+        player = "X";
+    }
+    else
+    {
+        player = "O";
+    }
+    
     clear_board();
 }
 
@@ -56,4 +64,10 @@ void TicTacToe::clear_board()
     {
         peg = " ";
     }
+}
+
+void TicTacToe::restart_game(std::string first_player)
+{
+    clear_board();
+    start_game(first_player);
 }
