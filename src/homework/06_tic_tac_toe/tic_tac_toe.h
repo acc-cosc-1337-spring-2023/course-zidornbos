@@ -5,8 +5,6 @@
 #include <string>
 #include <vector>
 
-
-
 class TicTacToe 
 {
     public:
@@ -14,13 +12,19 @@ class TicTacToe
         void mark_board(int position);
         void display_board() const;
         bool game_over();
-        void restart_game(std::string first_player);
+       // void restart_game(std::string first_player);
+        std::string get_winner() const;
     
     private:
         void set_next_player();
         bool check_board_full();
         void clear_board();
+        bool check_column_win() const;
+        bool check_row_win() const;
+        bool check_diagonal_win() const;
+        void set_winner();
         std::string player;
+        std::string winner;
         std::vector<std::string> pegs{9, " "};
 
 };
