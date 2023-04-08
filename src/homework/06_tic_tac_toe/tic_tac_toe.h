@@ -10,11 +10,11 @@ class TicTacToe
     public:
         void start_game(std::string first_player);
         void mark_board(int position);
-        void display_board() const;
         bool game_over();
-       // void restart_game(std::string first_player);
         std::string get_winner() const;
         std::string get_player() const;
+        friend std::istream& operator>>(std::istream& in, TicTacToe& game);
+        friend std::ostream& operator<<(std::ostream& out, const TicTacToe& game);
     
     private:
         void set_next_player();

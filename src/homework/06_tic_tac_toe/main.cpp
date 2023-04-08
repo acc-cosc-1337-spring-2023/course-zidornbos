@@ -1,57 +1,48 @@
 #include <iostream>
 #include <string>
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 
 using std::cout; using std::cin; using std::string;
 
 int main() 
 {
-	TicTacToe game;
+	TicTacToeManager manager;
 	std::string first_player;
-	bool continue_game = true;
-	cout << "Enter the first player (X or O): ";
+	char answer;
+	
+	do
+	{
+	std::cout << "Enter the first player (x or o): ";
 	cin >> first_player;
+
+	TicTacToe game;
 	game.start_game(first_player);
 
-	while(continue_game)
-	{
-		TicTacToe game;
-		game.start_game(first_player);
+		while (!game.game_over())
+		{
+			std::cin >> game;
+			std::cout << game;
+		}
+
+		std::string winner = game.get_winner();
+		std::cout << "Winner: " << (winner =="C" ? "Tie" : winner) << "\n";
+			
+		manager.save_game(game);
+		int o_wins, x_wins, ties;
+		manager.get_winner_total(o_wins, x_wins, ties);
+
+		std::cout << "O Wins: " << o_wins << "\n";
+		std::cout << "X Wins: " << x_wins << "\n";
+		std::cout << "Ties: " << ties << "\n";
+
+		std::cout << "Play again? (Y/N): ";
+		std::cin >> answer;
+	}while(answer == 'Y' || answer == 'y');
+		return 0;
+		
+	
+}
+
 	
 
-		while(!game.game_over() && continue_game)
-		{
-			int position;
-			cout << "Player " << game.get_player() << ", enter a position (1-9): ";
-			cin >> position;
-
-			while(position < 1 || position > 9)
-			{
-				cout << "Invalid selection. Please try again.\n";
-				cin >> position;
-			}
-
-		game.mark_board(position);
-		game.display_board();
-
-		}
-
-		cout << "Game over ";
-		if (game.get_winner() == "C") 
-		{
-			cout << "It's a tie!\n";
-		}
-		else
-		{
-			cout << "Winner: " << game.get_winner() << '\n';
-		}
-		std::string answer;
-			cout << "Play again? (Y/N): ";
-			cin >> answer;
-			continue_game = (answer[0] == 'Y' || answer[0] == 'y');
-				
-			
-
-	} 
-	return 0;
-}
