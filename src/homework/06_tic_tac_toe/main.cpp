@@ -9,52 +9,49 @@ int main()
 	TicTacToe game;
 	std::string first_player;
 	bool continue_game = true;
-	game.start_game(first_player);
-
-	while (continue_game)
-	{
 	cout << "Enter the first player (X or O): ";
 	cin >> first_player;
-
-	TicTacToe game;
 	game.start_game(first_player);
 
-		while(!game.game_over())
+	while(continue_game)
+	{
+		TicTacToe game;
+		game.start_game(first_player);
+	
+
+		while(!game.game_over() && continue_game)
 		{
 			int position;
-			game.display_board();
-			cout << "Enter a position (1-9): ";
+			cout << "Player " << game.get_player() << ", enter a position (1-9): ";
 			cin >> position;
 
-			while(!cin.good() || position < 1 || position > 9)
+			while(position < 1 || position > 9)
 			{
 				cout << "Invalid selection. Please try again.\n";
-				cin.clear();
 				cin >> position;
 			}
 
 		game.mark_board(position);
-		}
-		if (game.game_over())
-		{
-		
-			cout << "Game over!\n";
-			cout << "Winner: " << game.get_winner() << '\n';
+		game.display_board();
 
-			std::string answer;
+		}
+
+		cout << "Game over ";
+		if (game.get_winner() == "C") 
+		{
+			cout << "It's a tie!\n";
+		}
+		else
+		{
+			cout << "Winner: " << game.get_winner() << '\n';
+		}
+		std::string answer;
 			cout << "Play again? (Y/N): ";
 			cin >> answer;
-			if (answer == "N")
-			{
-				continue_game = false;
-			}
+			continue_game = (answer[0] == 'Y' || answer[0] == 'y');
+				
 			
-			TicTacToe game;
-			game.start_game(first_player);
-		}
 
-	
-
-	}
+	} 
 	return 0;
 }
