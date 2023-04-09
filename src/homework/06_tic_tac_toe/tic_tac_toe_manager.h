@@ -18,15 +18,9 @@ class TicTacToeManager
         int o_wins = 0;
         int x_wins = 0;
         int ties = 0;
-        void update_winner_count(char winner);
+        void update_winner_count(std::string winner);
 
 };
-
-
-
-
-
-
 
 
 

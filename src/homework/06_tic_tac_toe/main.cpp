@@ -35,6 +35,7 @@ int main()
 		std::cout << "O Wins: " << o_wins << "\n";
 		std::cout << "X Wins: " << x_wins << "\n";
 		std::cout << "Ties: " << ties << "\n";
+   
 
 		std::cout << "Play again? (Y/N): ";
 		std::cin >> answer;
