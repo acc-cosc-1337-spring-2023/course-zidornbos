@@ -7,7 +7,7 @@ using std::string;
 void TicTacToe::mark_board(int position)
 {
     pegs[position - 1] = player;
-    
+    //set_next_player();
 }
 
 void TicTacToe::start_game(std::string first_player)
@@ -111,7 +111,7 @@ std::istream& operator>>(std::istream& in, TicTacToe& game )
 				std::cout << "Invalid selection. Please try again.\n";
 				in >> position;
 			}
-
+       
 		game.mark_board(position);
         game.set_next_player();
 		return in;

@@ -58,6 +58,13 @@ TEST_CASE("Test for C if game over is tie")
 	REQUIRE(t.get_winner() == "C");
 
 }
+TEST_CASE("Test first player is set to O")
+{
+	TicTacToe t;
+	t.start_game("O");
+	REQUIRE(t.get_player() == "O");
+}
+
 TEST_CASE("Test first player is set to X")
 {
 	TicTacToe t;
@@ -113,9 +120,3 @@ TEST_CASE("Verify the get winner total is tallying correctly")
 	
 
 }
-//TEST_CASE("Test first player set to X")
-//{
-//	TicTacToe t;
-//	t.start_game("X");
-//	REQUIRE(t.get_player() == "X");
-//}
