@@ -4,6 +4,8 @@
 
 using std::string;
 
+TicTacToe::TicTacToe(int size) : pegs(size * size, " "){}
+
 void TicTacToe::mark_board(int position)
 {
     pegs[position - 1] = player;
