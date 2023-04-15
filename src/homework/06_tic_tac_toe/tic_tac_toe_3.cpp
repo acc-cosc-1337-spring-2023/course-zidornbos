@@ -1,34 +1,40 @@
 #include "tic_tac_toe_3.h"
 
-TicTacToe3::TicTacToe3() : TicTacToe(3)
-{
-    bool check_column_win();
+TicTacToe3::TicTacToe3() : TicTacToe(3){}
+
+    bool TicTacToe3::check_column_win() const
     {
     for(int i=0; i < 3; ++i)
     {
         if(pegs[i] == pegs[i + 3] && pegs[i + 3] == pegs[i + 6] && pegs[i] != " ")
         {
+            return true;
         }
     }
+    return false;
     }
 
-    bool check_row_win();
+    bool TicTacToe3::check_row_win() const
     { 
     for (int i = 0; i < 9; i += 3)
     {
         if (pegs[i] == pegs[i + 1] && pegs[i + 1] == pegs[i + 2] && pegs[i] != " ")
         {
+            return true;
         }
-    }}
+    }
+    return false;
+    }
 
-    bool check_diagonal_win();
+    bool TicTacToe3::check_diagonal_win() const
     {
         if ((pegs[0] == pegs[4] && pegs[4] == pegs[8] && pegs[0] != " ") || (pegs[2] == pegs[4] && pegs[4] == pegs[6] && pegs[2] != " "))
     {
+        return true;
     }
-    
+    return false;
     }
-};
+
 /*
 class function check_column_win
 Win by column if and return true if

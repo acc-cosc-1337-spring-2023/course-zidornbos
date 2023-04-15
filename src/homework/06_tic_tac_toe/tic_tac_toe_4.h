@@ -8,6 +8,7 @@ class TicTacToe4 : public TicTacToe
 {
     public:
         TicTacToe4();
+        int get_board_size() const override { return 4;}
 
     private:
         bool check_column_win() const override;

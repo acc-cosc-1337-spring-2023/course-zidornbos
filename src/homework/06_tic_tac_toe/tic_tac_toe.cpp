@@ -1,5 +1,7 @@
 // cpp
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_3.h"
+#include "tic_tac_toe_4.h"
 #include <iostream>
 #include <cmath>
 
@@ -17,18 +19,22 @@ void TicTacToe::start_game(std::string first_player)
 {
     player = first_player;
     clear_board();
-    set_next_player();
+    //set_next_player();
+    if(!winner.empty())
+    {
+        set_next_player();
+    }
 }
 
 void TicTacToe::set_next_player()
 {
-    if (player == "X")
+    if (player == "x")
     {
-        player = "O";
+        player = "o";
     }
     else
     {
-        player = "X";
+        player = "x";
     }
 }
 
@@ -77,23 +83,26 @@ bool TicTacToe::check_diagonal_win() const
 
 void TicTacToe::set_winner()
 {
-    if (player == "X")
+    if (player == "x")
     {
-        winner = "O";
+        winner = "o";
     }
     else
     {
-        winner = "X";
+        winner = "x";
     }
 }
 
-std::istream &operator>>(std::istream &in, TicTacToe &game)
+std::istream& operator>>(std::istream& in, TicTacToe& game)
 {
     int position;
-    std::cout << "Player " << game.get_player() << ", enter a position (1-9): ";
+    int board_size = game.get_board_size();
+    int max_position = board_size * board_size;
+
+    std::cout << "Player " << game.get_player() << ", enter a position (1-" << max_position << "): ";
     in >> position;
 
-    while (position < 1 || position > 9 || game.pegs[position - 1] != " ")
+    while (position < 1 || position > max_position || game.pegs[position - 1] != " ")
     {
         std::cout << "Invalid selection. Please try again.\n";
         in >> position;
@@ -104,12 +113,12 @@ std::istream &operator>>(std::istream &in, TicTacToe &game)
     return in;
 }
 
-std::ostream &operator<<(std::ostream &out, const TicTacToe &game)
+std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
 {
     int board_size = static_cast<int>(std::sqrt(game.pegs.size()));
-    for (int i = 0; i < game.pegs.size(); ++i)
+    for (std::vector<std::string>::size_type i = 0; i < game.pegs.size(); ++i)
     {
-        out << game.pegs[i] << (i % board_size == board_size - 1 ? "" : " | ");
+        out << game.pegs[i] << (i % board_size == static_cast<unsigned>(board_size - 1) ? "" : " | ");
         if ((i + 1) % board_size == 0)
         {
             out << "\n";

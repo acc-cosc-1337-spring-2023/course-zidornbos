@@ -19,11 +19,11 @@ void TicTacToeManager::get_winner_total(int& o, int& w, int& t)
 void TicTacToeManager::update_winner_count(std::string winner) 
 {
    
-    if(winner == "O")
+    if(winner == "o")
     {
         o_wins++;
     }
-    else if (winner == "X")
+    else if (winner == "x")
     {
         x_wins++;
     }

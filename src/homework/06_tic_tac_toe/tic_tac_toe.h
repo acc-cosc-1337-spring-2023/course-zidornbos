@@ -17,6 +17,13 @@ class TicTacToe
         friend std::istream& operator>>(std::istream& in, TicTacToe& game);
         friend std::ostream& operator<<(std::ostream& out, const TicTacToe& game);
     
+    protected:
+        std::vector<std::string> pegs;
+        virtual int get_board_size() const = 0;
+        virtual bool check_column_win() const = 0;
+        virtual bool check_row_win() const = 0;
+        virtual bool check_diagonal_win() const = 0;
+
     private:
         void set_next_player();
         bool check_board_full() const;
@@ -25,12 +32,7 @@ class TicTacToe
         std::string player;
         std::string winner;
 
-    protected:
-        std::vector<std::string> pegs;
-        virtual bool check_column_win() const;
-        virtual bool check_row_win() const;
-        virtual bool check_diagonal_win() const;
-    
+        
 
 };
 
