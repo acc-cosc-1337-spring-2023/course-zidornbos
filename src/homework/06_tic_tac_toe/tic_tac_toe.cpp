@@ -12,7 +12,7 @@ TicTacToe::TicTacToe(int size) : pegs(size * size, " ") {}
 void TicTacToe::mark_board(int position)
 {
     pegs[position - 1] = player;
-    // set_next_player();
+    set_next_player();
 }
 
 void TicTacToe::start_game(std::string first_player)
@@ -20,10 +20,10 @@ void TicTacToe::start_game(std::string first_player)
     player = first_player;
     clear_board();
     //set_next_player();
-    if(!winner.empty())
+    /*if(!winner.empty())
     {
         set_next_player();
-    }
+    }*/
 }
 
 void TicTacToe::set_next_player()
@@ -32,7 +32,7 @@ void TicTacToe::set_next_player()
     {
         player = "o";
     }
-    else
+    else if (player == "o")
     {
         player = "x";
     }
@@ -109,7 +109,7 @@ std::istream& operator>>(std::istream& in, TicTacToe& game)
     }
 
     game.mark_board(position);
-    game.set_next_player();
+    //game.set_next_player();
     return in;
 }
 
