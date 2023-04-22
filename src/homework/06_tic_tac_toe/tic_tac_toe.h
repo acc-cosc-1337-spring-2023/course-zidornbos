@@ -11,6 +11,8 @@ class TicTacToe
         void start_game(std::string first_player);
         void mark_board(int position);
         TicTacToe(int size);
+        TicTacToe(std::vector<std::string> p, std::string win);
+        const std::vector<std::string>& get_pegs() const;
         bool game_over();
         std::string get_winner() const;
         std::string get_player() const;
