@@ -10,13 +10,15 @@
 #include <vector>
 #include <memory>
 #include <stdlib.h>
+#include <cstring>
 
-class TicTacToeManager
+using std::string; using std::vector;
+class TicTacToeManager : public TicTacToeData
 {
     public:
         TicTacToeManager() = default;
-        TicTacToeManager(TicTacToeData &data);
-        void save_game();
+        TicTacToeManager (TicTacToeData &data);
+        void save_game(std::unique_ptr<TicTacToe>&);
         friend std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager);
         void get_winner_total(int& o, int& w, int& t);
         void start_game(std::unique_ptr<TicTacToe>& board, std::string player);

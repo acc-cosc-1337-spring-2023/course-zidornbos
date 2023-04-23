@@ -2,17 +2,22 @@
 #include "tic_tac_toe_data.h"
 #include "tic_tac_toe_manager.h"
 #include <iostream>
+#include <string>
+#include <vector>
+#include <memory>
+#include <stdlib.h>
+#include <cstring>
 
-TicTacToeManager::TicTacToeManager(TicTacToeData &data_ref) : data{data_ref}
+TicTacToeManager::TicTacToeManager(TicTacToeData &data)
 {
     games = data.get_game();
-    for (const auto& game : games)
+    for (auto& game : games)
     {
         update_winner_count(game->get_winner());
     }
 }
 
-void TicTacToeManager::save_game()
+void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>&game)
 {
     data.save_game(games);
 }
