@@ -1,7 +1,11 @@
 //h
+#ifndef TIC_TAC_TOE_DATA_H
+#define TIC_TAC_TOE_DATA_H
+
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
+#include "tic_tac_toe_manager.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,3 +21,5 @@ class TicTacToeData
     private:
     const std::string file_name{"tictactoe.dat"};
 };
+
+#endif
