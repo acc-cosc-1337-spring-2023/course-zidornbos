@@ -1,3 +1,4 @@
+#include "tic_tac_toe.h"
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_manager.h"
 #include <iostream>
@@ -9,8 +10,6 @@
 
 using std::string; using std::cout; using std::vector;
 
-//TicTacToe3::TicTacToe3() : TicTacToe(3){}
-//TicTacToe3::TicTacToe3(std::vector<std::string> p, std::string winner) : TicTacToe(p, winner) {}
 
     bool TicTacToe3::check_column_win() const
     {
